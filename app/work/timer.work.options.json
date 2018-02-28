@@ -1,0 +1,25 @@
+{
+  "timer": {
+    "steps": {
+      "session": {
+        "value": 2,
+        "units": "minutes"
+      }
+    },
+    "countUnits": ["minutes", "seconds"],
+    "direction": "down"
+  },
+  "increase": {
+    "step": "session",
+    "value": 1,
+    "units": "minutes",
+    "increment": 1
+  },
+  "decrease": {
+    "step": "session",
+    "value": 1,
+    "units": "minutes",
+    "increment": 1,
+    "sign": -1
+  }
+}

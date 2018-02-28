@@ -1,0 +1,18 @@
+# Untracked files
+## bundle
+bundle
+## coverage reports
+coverage
+## node modules
+node_modules
+## other
+lib
+old
+package-lock.json
+**/todo
+**/tools.md
+.babelrc
+.npmignore
+.npmrc
+time.plugin.js
+spec

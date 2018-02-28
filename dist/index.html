@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body ng-app="app" ng-controller="appController">
+  <div ng-controller="TimerBreak">
+    <p>Break length</p>
+    <button ng-click="decrease()">-</button>
+    <p ng-bind="length"></p>
+    <button ng-click="increase()">+</button>
+    <div>
+      <p>Break</p>
+      <p ng-bind="minutes"></p>
+      <p ng-bind="seconds"></p>
+    </div>
+  </div>
+  <div ng-controller="TimerSession">
+    <div>
+      <p>Session length</p>
+      <button ng-click="decrease()">-</button>
+      <p ng-bind="length"></p>
+      <button ng-click="increase()">+</button>
+    </div>
+    <div ng-click="toggle()">
+      <p>Session</p>
+      <p ng-bind="minutes"></p>
+      <p ng-bind="seconds"></p>
+    </div>
+  </div>
+    <!-- <div>
+      <input type="radio" value="Yes" ng-model="answear">Yes</input>
+      <input type="radio" value="No" ng-model="answear">No</input>
+    </div>
+    <form action="" ng-submit="addTask()" ng-show="answear">
+      <input type="text" ng-model="taskDescription">
+      <input type="submit">
+    </form>
+  </div>
+  <div ng-controller="timerTasks">
+    <ul>
+      <li ng-repeat="task in tasks" class="task-{{task.done}}">{{task.description}}</li>
+    </ul>
+  </div> -->
+<script type="text/javascript" src="undefined"></script><script type="text/javascript" src="./myTimer.angular.js"></script></body>
+</html>

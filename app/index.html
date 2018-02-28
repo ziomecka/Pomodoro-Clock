@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pomodoro Clock</title>
+</head>
+<body ng-app="App" ng-controller="AppController">
+  <div class="controls-box">
+    <break-component class="control-break"></break-component>
+    <work-component class="control-work"></work-component>
+  </div>
+  <div class="clock-box">
+    <p ng-bind="clock.name" class="clock-name"></p>
+    <p class="clock-time" ng-click="clock.toggle()">
+      <span ng-bind="clock.minutes"></span>
+      <span>:</span>
+      <span ng-bind="clock.seconds"></span>
+    </p>
+  </div>
+</body>
+</html>
