@@ -5,10 +5,25 @@ import CleanWebpackPlugin from "clean-webpack-plugin";
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import webpack from "webpack";
+import JsDocPlugin from "jsdoc-webpack-plugin-v2";
 
-const pathsToClean = ["bundle"];
+const pathsToClean = ["bundle", "docs"];
+
 const cleanOptions = {
-  verbose:  true
+  verbose: true
+};
+
+const htmlOptions = {
+  title: "pomodoro-clock",
+  template: "index.html",
+  inject: "head"
+};
+
+const jsDocOptions = {
+  conf: path.join(__dirname, "jsdoc.conf.json"),
+  source: {
+    include: "./app"
+  }
 };
 
 const settings = merge (common, {
@@ -18,11 +33,8 @@ const settings = merge (common, {
   },
   plugins: [
     new CleanWebpackPlugin(pathsToClean, cleanOptions),
-    new HtmlWebpackPlugin({
-      title: "pomodoro-clock",
-      template: "index.html",
-      inject: "head"
-    })
+    new HtmlWebpackPlugin(htmlOptions),
+    new JsDocPlugin(jsDocOptions)
   ]
 });
 
