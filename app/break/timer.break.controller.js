@@ -1,4 +1,10 @@
 /* jshint esversion: 6 */
+/**
+ * @controller timer.break.controller
+ * @name timer.break.controller.BreakController
+ * @param {service} BreakService
+ * @description break controller's function
+ */
 export default ($scope, BreakService) => {
   $scope.timer = {
     name: "break",
