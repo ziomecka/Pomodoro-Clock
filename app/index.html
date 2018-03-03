@@ -7,13 +7,13 @@
   <title>Pomodoro Clock</title>
 </head>
 <body ng-app="App" ng-controller="AppController">
-  <div class="controls-box">
-    <break-component class="control-break"></break-component>
-    <work-component class="control-work"></work-component>
+  <div class="timer__controls">
+    <break-component class="timer__controls--box"></break-component>
+    <work-component class="timer__controls--box"></work-component>
   </div>
-  <div class="clock-box">
-    <p ng-bind="clock.name" class="clock-name"></p>
-    <p class="clock-time" ng-click="clock.toggle()">
+  <div class="timer__clock">
+    <p ng-bind="clock.name" class="timer__clock--name"></p>
+    <p ng-click="clock.toggle()" class="timer__clock--time">
       <span ng-bind="clock.minutes"></span>
       <span>:</span>
       <span ng-bind="clock.seconds"></span>
