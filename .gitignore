@@ -16,3 +16,7 @@ package-lock.json
 .npmrc
 time.plugin.js
 spec
+gitHelp.md
+**/_mixins-maybe.sass
+jsdoc.help
+jsdoc.**.tmp
