@@ -1,16 +1,20 @@
 /* jshint esversion: 6 */
 import path from "path";
 import webpack from "webpack";
+import ExtractSASS from "extract-text-webpack-plugin";
 
 const settings = {
   devtool: "source-map",
   context: path.join(__dirname, "app"),
   entry: {
-    app: path.join(__dirname, "/app/app.module.js")
+    app: path.join(__dirname, "/app/index.js")
   },
   resolve: {
     modules: ["node_modules"]
   },
+  plugins: [
+    new ExtractSASS("main.css")
+  ],
   module: {
     rules: [
       {
@@ -36,6 +40,13 @@ const settings = {
       {
         test: /\.json$/,
         loader: 'json-loader'
+      },
+      {
+        test: /\.sass$/,
+        use: ExtractSASS.extract({
+          fallback: "style-loader",
+          use: "css-loader!sass-loader"
+        })
       }
     ]
   }
