@@ -5,6 +5,7 @@ export default ($scope, $rootScope, WorkService) => {
     minutes: 0,
     seconds: 0,
     length: 0,
+    percentage: 0,
     increase: WorkService.increase,
     decrease: WorkService.decrease,
     start: WorkService.start,
