@@ -14,6 +14,7 @@ import AppController from "./app.controller";
 import AppTimerService from "./core/timer.service";
 import workComponent from "./work/timer.work.component";
 import breakComponent from "./break/timer.break.component";
+import progressbar from "./progressbar/progressbar.directive";
 /**
  * @typedef      TimerOptions
  * @type         {object}
@@ -24,11 +25,12 @@ import breakOptions from "./break/timer.break.options";
 
 export default angular
 .module("App", [])
-.controller("AppController", ["$scope", "$timeout", "WorkService", "BreakService", AppController])
-.service("WorkService", ["$rootScope", "workOptions", AppTimerService])
-.service("BreakService", ["$rootScope", "breakOptions", AppTimerService])
+.controller("AppController", ["$scope", "$timeout", "WorkService", "BreakService", "percentage", AppController])
+.service("WorkService", ["$rootScope", "workOptions", "percentage", AppTimerService])
+.service("BreakService", ["$rootScope", "breakOptions", "percentage", AppTimerService])
 .component("workComponent", workComponent)
 .component("breakComponent", breakComponent)
+.directive("progressbar", [progressbar])
 
 /**
  * @param {TimerOptions} workOptions
@@ -39,4 +41,5 @@ export default angular
 * @param {TimerOptions} breakOptions
 * @description register break options
 */
-.value("breakOptions", breakOptions);
+.value("breakOptions", breakOptions)
+.value("percentage", 0);
