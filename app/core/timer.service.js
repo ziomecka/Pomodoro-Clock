@@ -4,14 +4,14 @@ import MyTimer from "../../../mytimer/app/mytimer.class";
 export default function($rootScope, options) {
   let timer = new MyTimer(options.timer);
   let listener = null;
+  let unsubscribe = {};
 
-  timer.event.subscribe(this, "currentTime", "currentTime");
   timer.event.subscribe(this, "sessionChanged", "sessionChanged");
-  timer.event.subscribe(this, "sessionStopped", "sessionStopped");
 
   let getTime = () => {
     this.timer.minutes = timer.currentTime_minutes();
     this.timer.seconds = timer.currentTime_seconds();
+    this.timer.percentage = timer.ellapsed / timer.session;
     if (!$rootScope.$$phase) $rootScope.$apply();
   };
 
@@ -25,12 +25,26 @@ export default function($rootScope, options) {
     getTime();
   };
 
-  this.start = () => timer.start();
-  this.toggle = () => timer.toggle("pause");
+  this.toggle = () => {
+    unsubscribe.start = timer.event.subscribe(this, "currentTime", "currentTime");
+    unsubscribe.stop = timer.event.subscribe(this, "sessionStopped", "sessionStopped");
+    timer.toggle("pause");
+  };
 
   this.currentTime = () => getTime();
-  this.sessionChanged = () => this.timer.length = timer.sessionLength_minutes();
-  this.sessionStopped = () => listener.$emit(`${this.timer.name}_stopped`);
+
+  this.sessionChanged = () => {
+    this.timer.length = timer.sessionLength_minutes();
+    getTime();
+  };
+
+  this.sessionStopped = () => {
+    unsubscribe.start();
+    unsubscribe.stop();
+    delete unsubscribe.start;
+    delete unsubscribe.stop;
+    listener.$emit(`${this.timer.name}_stopped`);
+  };
 
   this.listen = function($scope, timer) {
     this.timer = $scope.timer;
