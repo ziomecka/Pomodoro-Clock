@@ -11,6 +11,7 @@ export default ($scope, BreakService) => {
     minutes: 0,
     seconds: 0,
     length: 0,
+    percentage: 0,
     increase: BreakService.increase,
     decrease: BreakService.decrease,
     start: BreakService.start,
