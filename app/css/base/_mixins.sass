@@ -20,13 +20,6 @@
     @else
       border-color: $bg-hover
 
-/** @mixin Clearfix */
-= clearfix
-  &::after
-    content: ""
-    clear: both
-    display: table
-
 /** @mixin Box */
 = box($width, $height: $width)
   width: $width
@@ -46,22 +39,6 @@
   align-items: $align
   justify-content: $justify
 
-= position($position, $args)
-  @each $o in top right bottom left
-    $i: index($args, $o)
-    @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == "number"
-      #{$o}: nth($args, $i + 1)
-  position: $position
-
-= absolute($args: '')
-  @include position(absolute, $args)
-
-= fixed($args: '')
-  @include position(fixed, $args)
-
-= relative($args: '')
-  @include position(relative, $args)
-
 = font-face($font-name, $file-name, $weight: normal, $style: normal)
   @font-face
     font-family: quote($font-name)
@@ -72,6 +49,15 @@
     url($file-name + ".svg##{$font-name}") format("svg")
     font-weight: $weight
     font-style: $style
+
+/** @mixin Center */
+= center
+  margin: 0 auto
+
+/** @mixin box */
+= box ($width, $height: $width)
+  width: $width * 1px
+  height: $height * 1px
 
 /** @mixin Media queries */
 = media($size)
