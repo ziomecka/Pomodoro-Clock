@@ -26,8 +26,10 @@ export default function($rootScope, options) {
   };
 
   this.toggle = () => {
-    unsubscribe.start = timer.event.subscribe(this, "currentTime", "currentTime");
-    unsubscribe.stop = timer.event.subscribe(this, "sessionStopped", "sessionStopped");
+    if (timer.status === "stopped")  {
+      unsubscribe.currentTime = timer.event.subscribe(this, "currentTime", "currentTime");
+      unsubscribe.stopped = timer.event.subscribe(this, "sessionStopped", "sessionStopped");
+    }
     timer.toggle("pause");
   };
 
@@ -39,8 +41,8 @@ export default function($rootScope, options) {
   };
 
   this.sessionStopped = () => {
-    unsubscribe.start();
-    unsubscribe.stop();
+    unsubscribe.currentTime();
+    unsubscribe.stopped();
     delete unsubscribe.start;
     delete unsubscribe.stop;
     listener.$emit(`${this.timer.name}_stopped`);
