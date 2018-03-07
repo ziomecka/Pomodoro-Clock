@@ -6,15 +6,15 @@
  */
 export default ($scope, $timeout, WorkService, BreakService) => {
   const me = $scope;
-  const timeout = 2000;
+  const timeout = 1000;
 
   me.$on("break_stopped", () => {
     me.clock = WorkService.timer;
-    $timeout(WorkService.start(), timeout);
+    $timeout(WorkService.toggle(), timeout);
   });
 
   me.$on("work_stopped", () => {
     me.clock = BreakService.timer;
-    $timeout(BreakService.start(), timeout);
+    $timeout(BreakService.toggle(), timeout);
   });
 };
