@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pomodoro Clock</title>
+  <link rel="stylesheet" type="text/css" href="production/main.css">
+  <script src="production/PomodoroClock.bundle.js"></script>
+</head>
+<body ng-app="App" ng-controller="AppController">
+  <div class="timer">
+    <div class="timer__controls">
+      <break-component class="timer__controls--box"></break-component>
+      <work-component class="timer__controls--box"></work-component>
+    </div>
+    <div ng-click="clock.toggle()" class="timer__clock" progressbar="clock.percentage">
+      <p>
+        <span ng-bind="clock.name"></span>
+        <span> !</span>
+      </p>
+      <p>
+        <span ng-bind="clock.minutes"></span>
+        <span>:</span>
+        <span ng-bind="clock.seconds"></span>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
