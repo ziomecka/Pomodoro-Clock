@@ -1,0 +1,291 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600|Raleway:500,700&amp;subset=latin-ext);/** Standard distance - used in distance function */
+/** Font weight */
+/** Buttons */
+/** Colors variables.
+    From here colors are exported to JS
+    */
+/** Timer */
+/** Colors */
+/** Base font */
+/** Font size */
+/** Line height */
+/** Font weight */
+/** Reference individual colors. */
+/** Font functions */
+/** @mixin Font size and line height */
+/** @mixin Button */
+/** @mixin Box */
+/** @mixin Prefixes */
+/** @mixin Position */
+/** @mixin Center */
+/** @mixin box */
+/** @mixin Media queries */
+/** Standard distance - used in distance function */
+/** Font weight */
+/** Buttons */
+/** Colors variables.
+    From here colors are exported to JS
+    */
+/** Timer */
+/** normalize.sass v3.0.3 | MIT License | github.com/necolas/normalize.css */
+html {
+  font-family: "Raleway", sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  padding: 0;
+  margin: 0 10%;
+  position: relative;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+  font-size: 16px;
+  color: #070707; }
+  @media only screen and (max-width: 767px) {
+    body {
+      font-size: 14px; } }
+
+div, p, footer, header {
+  box-sizing: border-box; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+audio, canvas, progress, video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden], template {
+  display: none; }
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit; }
+  a:active, a:hover {
+    outline: 0; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b, strong {
+  font-weight: bold; }
+
+dfn {
+  font-style: italic; }
+
+h1 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.777rem;
+  line-height: 1.875rem;
+  margin: 0.67em 0; }
+
+h2 {
+  font-size: 1.333rem;
+  line-height: 1.875rem;
+  margin: 0.67em 0; }
+
+p {
+  font-size: 1rem;
+  line-height: 1.5rem; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+small {
+  font-size: 80%; }
+
+sub {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+img {
+  border: 0; }
+
+figure {
+  margin: 1em 40px; }
+
+hr {
+  box-sizing: content-box;
+  height: 0; }
+
+pre {
+  overflow: auto; }
+
+code, kbd, pre, samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0; }
+
+button {
+  overflow: visible;
+  text-transform: none; }
+
+select {
+  text-transform: none; }
+
+button, html input[type="button"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled], html input[disabled] {
+  cursor: default; }
+
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+input {
+  line-height: normal; }
+  input::-moz-focus-inner {
+    border: 0;
+    padding: 0; }
+  input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0; }
+  input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+    height: auto; }
+  input[type="search"] {
+    -webkit-appearance: textfield;
+    box-sizing: content-box; }
+    input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+      -webkit-appearance: none; }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+legend {
+  border: 0;
+  padding: 0; }
+
+textarea {
+  overflow: auto; }
+
+optgroup {
+  font-weight: bold; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td, th {
+  padding: 0; }
+
+ul {
+  list-style-position: outside;
+  padding-left: distance(1); }
+
+li {
+  margin-top: distance(0.5); }
+
+/** Standard distance - used in distance function */
+/** Font weight */
+/** Buttons */
+/** Colors variables.
+    From here colors are exported to JS
+    */
+/** Timer */
+.button {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: font-setting("-1");
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: 1px;
+  border-style: solid;
+  border-radius: 0;
+  text-decoration: none;
+  outline: none; }
+
+.button {
+  background: #d0d0d0; }
+
+.timer__clock {
+  font-weight: 800;
+  text-transform: uppercase;
+  text-shadow: 0px -2px #a0a0a0; }
+
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+
+.timer__controls--box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+
+.timer__control--name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 100%;
+  font-weight: 800; }
+
+.timer__control--button, .timer__control--length {
+  flex: 0 1 33%; }
+
+.timer__control--button {
+  max-width: 50px; }
+
+.timer__control--length {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.timer__clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  flex-direction: column;
+  margin: 60px;
+  border-radius: 50%;
+  position: relative;
+  transition: background-image 0.5s; }
+  .timer__clock::after {
+    width: 230px;
+    height: 230px;
+    content: "";
+    display: block;
+    background: #d0d0d0;
+    border-radius: 50%;
+    position: absolute;
+    top: -1 * 200 * 0.15 * 0.5px;
+    left: -1 * 200 * 0.15 * 0.5px;
+    z-index: -1; }
+  .timer__clock p {
+    margin: 0; }
+
+/*# sourceMappingURL=main.css.map*/
