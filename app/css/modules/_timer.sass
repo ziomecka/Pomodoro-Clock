@@ -1,0 +1,54 @@
+$t-behind: $t-size * (1 + $t-margin)
+$t-behind-margin: -1 * #{$t-size} * #{$t-margin} * 0.5 * 1px
+$t-clock-margin: ($t-size * $t-margin * 2 * 1px)
+
+%font-time
+  font-weight: $fw-bold
+  text-transform: uppercase
+  text-shadow: 0px -2px $t-color-clock
+
+.timer
+  @include center-flex
+  flex-direction: column
+
+.timer__controls--box
+  @include center-flex
+  justify-content: space-between
+  flex-wrap: wrap
+
+.timer__control--name
+  @include center-flex
+  flex: 1 0 100%
+  font-weight: $fw-bold
+
+.timer__control--button, .timer__control--length
+  flex: 0 1 33%
+
+.timer__control--button
+  max-width: 50px
+
+.timer__control--length
+  @include center-flex
+
+.timer__clock
+  @extend %font-time
+  @include center-flex
+  @include box($t-size)
+  flex-direction: column
+  margin: $t-clock-margin
+  border-radius: 50%
+  position: relative
+  transition: background-image 0.5s
+  box-shadow:
+  &::after
+    @include box($t-behind)
+    content: ""
+    display: block
+    background: $t-color-behind
+    border-radius: 50%
+    position: absolute
+    top: #{$t-behind-margin}
+    left: #{$t-behind-margin}
+    z-index: -1
+  p
+    margin: 0
