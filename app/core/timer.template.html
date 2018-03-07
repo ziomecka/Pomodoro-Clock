@@ -1,7 +1,4 @@
-<p class="timer__control--name">
-  <span ng-bind="timer.name"></span>
-  <span>&nbsp; length</span>
-</p>
+<p class="timer__control--name" ng-bind="timer.name + '&nbsp; length'"></p>
 <button ng-click="timer.decrease()" class="button timer__control--button">-</button>
-<span ng-bind="timer.length" class="timer__control--length"></span>
+<p class="timer__control--length" ng-bind="(timer.length !== 1)? timer.length + '&nbsp;minutes' : timer.length + '&nbsp;minute'"></p>
 <button ng-click="timer.increase()" class="button timer__control--button">+</button>
